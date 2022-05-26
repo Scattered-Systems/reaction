@@ -24,6 +24,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: bin
+          context: code/crates/bin
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/reaction:latest

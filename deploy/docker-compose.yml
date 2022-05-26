@@ -1,0 +1,51 @@
+version: "3.9"
+services:
+  application:
+    build:
+      context: ../code/crates/bin
+      dockerfile: Dockerfile
+    container_name: application
+    ports:
+      - "8000:8080"
+    restart: always
+    volumes:
+      - ../artifacts/docker/data/bin:/data
+
+  cache:
+    container_name: cache
+    image: redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  cluster:
+    container_name: cluster
+    image: ipfs/ipfs-cluster
+    depends_on:
+      - datastore
+    environment:
+      CLUSTER_PEERNAME: cluster
+      CLUSTER_SECRET: ${CLUSTER_SECRET}
+      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs0/tcp/5001
+      CLUSTER_CRDT_TRUSTEDPEERS: '*'
+      CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094
+      CLUSTER_MONITORPINGINTERVAL: 2s
+    ports:
+      - "9094:9094"
+      - "9096:9096"
+    volumes:
+      - ../artifacts/docker/data/cluster/0:/data/ipfs-cluster
+
+  datastore:
+    container_name: datastore
+    image: ipfs/go-ipfs
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8080:8080"
+    volumes:
+      - ../artifacts/docker/data/ipfs/0:/data/ipfs
+
+volumes:
+  data:
+    driver: local

@@ -1,24 +1,25 @@
-# Build
-/**/build/
-/**/debug/
-/**/dist/
-/**/target/
+/**/config/local.*
+/**/config/secret.*
 
-# Cache
-/**/.DS_STORE/
-/**/.svelte-kit/
+*.env
+*.env.*
+!.env.example
 
 /**/__pycache__/
+/**/__sapper__/
 
-# Dependencies
-/**/node_modules/
-/**/venv/
-
-# Editors
+/**/.DS_STORE/
 /**/.idea/
 /**/.vscode/
 
-# General File Extensions
+/**/build/
+/**/debug/
+/**/dist/
+/**/docker/data/
+/**/node_modules/
+/**/target/
+/**/venv/
+
 *.bk
 *.bk.*
 
@@ -27,7 +28,6 @@
 
 *.egg
 *.egg.*
-*.egg-*
 
 *.exe
 *.exe.*
@@ -50,11 +50,3 @@
 
 *.zip
 *.zip.*
-
-# Secrets
-/**/config/local.*
-/**/config/secret.*
-
-*.env
-*.env.*
-!.env.example
