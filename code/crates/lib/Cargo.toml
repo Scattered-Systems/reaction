@@ -3,14 +3,14 @@ authors = ["FL03 <jo3mccain@icloud.com>", "Scattered-Systems <jo3mccain@icloud.c
 description = "A decentralized social network designed for a simple, cost-effective end-user platform"
 edition = "2021"
 license = "MIT"
-name = "reactionary"
+name = "reaction"
 repository = "https://github.com/scattered-systems/reaction.git"
 version = "0.1.0"
 
 [lib]
 bench = false
 crate-type = ["cdylib", "rlib"]
-name = "reactionary"
+name = "reaction"
 path = "src/lib.rs"
 test = true
 

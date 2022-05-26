@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 env:
-  CARGO_PACKAGE: reactionary
+  CARGO_PACKAGE: reaction
   CARGO_TERM_COLOR: always
 
 jobs:
