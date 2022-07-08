@@ -1,52 +1,60 @@
-/**/config/local.*
-/**/config/secret.*
+# Docker
+**/.docker/data/
 
-*.env
-*.env.*
-!.env.example
-
-/**/__pycache__/
-/**/__sapper__/
-
-/**/.DS_STORE/
-/**/.idea/
+# Environments
+/**/.idea
 /**/.vscode/
 
+# Files and File Extensions
+**/config.*
+**/*.config.*
+!**/default.config.*
+
+**/*.bk
+**/*.bk.*
+
+**/*.csv
+**/*.csv.*
+
+**/*.db
+**/*.db.*
+
+**/*.db-*.*
+
+**/*.env
+**/*.env.*
+
+**/!*.env.example
+
+**/*.lock
+**/*.lock.*
+
+**/*-lock.*
+
+**/*.log
+**/*.log.*
+
+**/*.whl
+**/*.whl.*
+
+**/*.zip
+**/*.zip.*
+
+
+# Nodejs
 /**/build/
-/**/debug/
-/**/dist/
-/**/docker/data/
 /**/node_modules/
-/**/target/
+
+# Python
+/**/__pycache__/
+/**/dist/
 /**/venv/
 
-*.bk
-*.bk.*
+# Rust
+/**/debug/
+/**/target/
 
-*.db
-*.db.*
-
-*.egg
-*.egg.*
-
-*.exe
-*.exe.*
-
-*.gz
-*.gz.*
-
-*.lock
-*.lock.*
-*-lock.*
-
-*.log
-*.log.*
-
-*.tar
-*.tar.*
-
-*.whl
-*.whl.*
-
-*.zip
-*.zip.*
+# Svelte
+/**/.DS_STORE/
+/**/__sapper__/
+/**/.svelte-kit/
