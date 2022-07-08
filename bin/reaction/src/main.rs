@@ -1,4 +1,4 @@
 
-fm main() {
-    println!("Welcome to the Aether");
+fn main() {
+    println!("Welcome to Reaction");
 }
