@@ -5,6 +5,7 @@ description = "Reaction is a full-stack decentralized community center enabling 
 edition = "2021"
 homepage = "https://scattered-systems.github.io/reaction/"
 keywords = []
+license = "MIT"
 name = "reaction"
 readme = "README.md"
 repository = "https://github.com/scattered-systems/reaction"
