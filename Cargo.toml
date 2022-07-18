@@ -1,32 +1,22 @@
-[workspace]
-default-members = [
-    "bin/reaction"
-]
+[package]
+authors = ["FL03 <jo3mccain@icloud.com>", "Scattered-Systems (https://scattered-systems.com)"]
+categories = []
+description = "Reaction is a full-stack decentralized community center enabling users to reap the benefits of owning their information"
+edition = "2021"
+homepage = "https://scattered-systems.github.io/reaction/"
+keywords = []
+name = "reaction"
+readme = "README.md"
+repository = "https://github.com/scattered-systems/reaction"
+version = "0.1.0"
 
-members = [
-    "bin/reaction"
-]
+[[bin]]
+bench = false
+name = "reaction"
 
-[profile.dev]
-opt-level = 0
-debug = true
-split-debuginfo = '...'  # Platform-specific.
-debug-assertions = true
-overflow-checks = true
-lto = false
-panic = 'unwind'
-incremental = true
-codegen-units = 256
-rpath = false
+[dependencies]
 
-[profile.release]
-opt-level = "s"
-debug = false
-split-debuginfo = '...'  # Platform-specific.
-debug-assertions = false
-overflow-checks = false
-lto = false
-panic = 'unwind'
-incremental = false
-codegen-units = 16
-rpath = false
+[dev-dependencies]
+
+[build-dependencies]
+
