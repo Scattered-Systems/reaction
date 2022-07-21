@@ -26,6 +26,6 @@ test = true
 [build-dependencies]
 
 [dependencies]
-scsys = { features = ["full"], version = ">=0.1.3" }
+scsys = { features = ["full"], version = ">=0.1.4" }
 
 [dev-dependencies]
