@@ -1,13 +1,17 @@
 FROM jo3mccain/rusty as builder
 
-ADD bin/reaction /app
+ADD . /app
 WORKDIR /app
 
-COPY bin/reaction .
+COPY . .
 RUN cargo build --release --verbose --color always
 
-FROM debian:buster-slim as application
+FROM photon as application
 
-COPY --from=builder /app/target/release/aether /aether
+ENV PORT=9002
 
-ENTRYPOINT ["./aether"]
+COPY --from=builder /app/target/release/reaction /reaction
+
+EXPOSE ${PORT}/tcp
+EXPOSE ${PORT}/udp
+ENTRYPOINT ["./reaction"]
