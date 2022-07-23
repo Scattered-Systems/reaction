@@ -4,12 +4,10 @@
     Description:
         ... Summary ...
 */
+#[doc(inline)]
+pub use crate::{actors::*, components::*, core::*, data::*};
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn test() {
-        let f = |x: usize, y: usize| x + y;
-        assert_eq!(f(4, 2), 6)
-    }
-}
+mod actors;
+mod components;
+mod core;
+mod data;

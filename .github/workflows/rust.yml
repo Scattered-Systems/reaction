@@ -15,7 +15,7 @@ on:
 jobs:
   crate:
     env:
-      CRATE: reaction-sdk
+      CRATE: reactionary
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
