@@ -1,0 +1,46 @@
+[package]
+authors = ["FL03 <jo3mccain@icloud.com> (https://github.com/FL03)"]
+categories = []
+description = "reaction"
+edition = "2021"
+homepage = "https://github.com/scattered-systems/reaction/wiki"
+keywords = ["scsys"]
+license = "MIT"
+name = "reaction"
+readme = "README.md"
+repository = "https://github.com/scattered-systems/reaction"
+version = "0.1.12"
+
+[build-dependencies]
+
+[dev-dependencies]
+opentelemetry = { features = ["rt-tokio"], version = "0.18.0" }
+opentelemetry-jaeger = { features = ["full"], version = "0.17.0" }
+
+[dependencies]
+async-session = "3.0.0"
+axum = { features = ["headers", "http2", "ws"], version = "0.5.16" }
+clap = { features = ["derive"], version = "4.0.8" }
+dotenv = "0.15.0"
+futures = "0.3.25"
+glob = "0.3.0"
+http = "0.2.8"
+hyper = { features = ["full"], version = "0.14.20" }
+oauth2 = "4.3.0"
+reqwest = { default-features = false, features = ["json", "rustls-tls", "stream"], version = "0.11.12" }
+scsys = { features = ["full"], git = "https://github.com/scattered-systems/scsys", version = "0.1.26" }
+serde = { default-features = false, features = ["derive"], version = "1.0.147" }
+serde_json = "1.0.87"
+strum = { features = ["derive"], version = "0.24.1" }
+tokio = { features = ["full"], version = "1.21.2" }
+tokio-stream = "0.1.10"
+tower = "0.4.13"
+tower-cookies = "0.7.0"
+tower-http = { features = ["full"], version = "0.3.4" }
+tracing = "0.1.36"
+tracing-opentelemetry = "0.18.0"
+tracing-subscriber = { features = ["env-filter"], version = "0.3.15" }
+
+[package.metadata.docs.rs]
+all-features = true
+rustc-args = ["--cfg", "docsrs"]

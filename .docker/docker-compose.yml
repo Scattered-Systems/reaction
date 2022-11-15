@@ -1,15 +1,17 @@
-version: "3.9"
+version: "4.0"
 services:
   application:
     build:
-      context: ../code/crates/bin
+      context: ../fluidity
       dockerfile: Dockerfile
-    container_name: application
+      target: latest
+    container_name: flow
     ports:
-      - "8000:8080"
+      - "9000:9000"
     restart: always
     volumes:
-      - ../artifacts/docker/data/bin:/data
+      - /config:/config
+      - /data:/data
 
   cache:
     container_name: cache
@@ -18,11 +20,11 @@ services:
       - "6379:6379"
     restart: always
 
-  cluster:
-    container_name: cluster
+  ipfs-cluster-master:
+    container_name:   ipfs-cluster-master
     image: ipfs/ipfs-cluster
     depends_on:
-      - datastore
+      - ipfs-peer-master
     environment:
       CLUSTER_PEERNAME: cluster
       CLUSTER_SECRET: ${CLUSTER_SECRET}
@@ -34,18 +36,17 @@ services:
       - "9094:9094"
       - "9096:9096"
     volumes:
-      - ../artifacts/docker/data/cluster/0:/data/ipfs-cluster
+      - /data/cluster/master:/data/ipfs-cluster
 
-  datastore:
-    container_name: datastore
+  ipfs-peer-master:
+    container_name: ipfs-peer-master
     image: ipfs/go-ipfs
     ports:
       - "4001:4001"
       - "5001:5001"
       - "8080:8080"
     volumes:
-      - ../artifacts/docker/data/ipfs/0:/data/ipfs
+      - /data/ipfs/master:/data/ipfs
 
 volumes:
   data:
-    driver: local

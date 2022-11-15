@@ -1,0 +1,13 @@
+schemaVersion: 2.2.0
+metadata:
+  name: 'DevSpace'
+attributes:
+  space:
+    editor:
+      type: Fleet
+      version: '1.10'
+      updateChannel: EAP
+components:
+- name: rust
+  container:
+    image: rust

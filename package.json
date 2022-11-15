@@ -1,0 +1,36 @@
+{
+    "author": "FL03 <jo3mccain@scattered-systems.com> (https://github.com)",
+    "bugs": "https://github.com/scattered-systems/reaction/issues",
+    "description": "Smart-Contracts created for the scsys initiative",
+    "devDependencies": {
+      "@truffle/hdwallet-provider": "2.0.15",
+      "dotenv": "16.0.2",
+      "ganache-cli": "^6.12.2",
+      "hardhat": "^2.11.2",
+      "truffle": "^5.5.32"
+    },
+    "homepage": "https://github.com/scattered-systems/reaction/wiki",
+    "keywords": [
+      "solidity",
+      "smart-contracts",
+      "ethereum",
+      "blockchain"
+    ],
+    "license": "MIT",
+    "name": "@scsys/reaction",
+    "repository": "https://github.com/scattered-systems/reaction",
+    "scripts": {
+      "build": "npm run core:build",
+      "dev": "nnpm run core:dev",
+      "test": "npm run core:test",
+      "core:build": "npm run build --workspace=@reaction/contracts",
+      "core:dev": "npm run dev --workspace=@reaction/contracts",
+      "core:install": "npm install --workspace=@reaction/contracts",
+      "core:test": "npm run test --workspace=@reaction/contracts"
+    },
+    "version": "0.0.1",
+    "workspaces": [
+      "packages/*"
+    ]
+  }
+  

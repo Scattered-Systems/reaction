@@ -1,0 +1,5 @@
+tasks:
+  - init: sh scripts/setup.sh
+    command: cargo watch -x run
+
+

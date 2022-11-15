@@ -1,17 +1,34 @@
-FROM jo3mccain/rusty as builder
+FROM rust:latest as builder-base
+
+RUN apt-get update -y && apt-get upgrade -y
+
+RUN apt-get install -y \
+    apt-utils \
+    protobuf-compiler
+
+RUN rustup update 
+
+FROM builder-base as builder
 
 ADD . /app
 WORKDIR /app
 
 COPY . .
-RUN cargo build --release --verbose --color always
+RUN cargo build --color always --release --verbose -p flow
 
-FROM photon as application
+FROM debian:buster-slim as runner-base
 
-ENV PORT=9002
+RUN apt-get update -y && apt-get upgrade -y 
 
-COPY --from=builder /app/target/release/reaction /reaction
+FROM runner-base as runner
 
-EXPOSE ${PORT}/tcp
-EXPOSE ${PORT}/udp
-ENTRYPOINT ["./reaction"]
+ENV CLIENT_ID="" \
+    CLIENT_SECRET="" \
+    RUST_LOG="info" \
+    SERVER_PORT=9090
+
+COPY --from=builder /app/target/release/reaction /space/bin/reaction
+
+EXPOSE ${SERVER_PORT}
+
+CMD [ "flow", "system", "on" ]

@@ -1,24 +1,14 @@
-# Config
-**/config.*
-**/*.config.*
-
-**/*.env
-**/*.env.*
-
-# Directories
+# Dirs
 **/__pycache__/
 **/__sapper__/
 
 **/.DS_STORE/
-**/.artifacts/data/
-**/.cache/
+**/.artifacts/
 **/.docker/data/
 **/.idea/
-**/.pytest_cache/
 **/.svelte-kit/
 **/.vscode/
 
-**/artifacts/
 **/build/
 **/debug/
 **/dist/
@@ -27,9 +17,14 @@
 **/target/
 **/venv/
 
-# File Extensions
+# Extensions
 **/*.bk
 **/*.bk.*
+
+**/config.*
+**/*.config.*
+
+!**/default.config.*
 
 **/*.csv
 **/*.csv.*
@@ -39,6 +34,17 @@
 
 **/*.db-*.*
 
+**/*.env
+**/*.env.*
+
+**/!*.env.example
+
+**/*.jpeg
+**/*.jpeg.*
+
+**/*.jpg
+**/*.jpg.*
+
 **/*.lock
 **/*.lock.*
 
@@ -47,14 +53,15 @@
 **/*.log
 **/*.log.*
 
+**/*.png
+**/*.png.*
+
+**/*.svg
+**/*.svg.*
+
 **/*.whl
 **/*.whl.*
 
 **/*.zip
 **/*.zip.*
-
-# Exceptions
-!**/default.config.*
-!**/*.env.example
-!**/*.config.js
-!**/*.config.cjs
+!/.gitignore
