@@ -31,28 +31,16 @@ jobs:
       - run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
       - run: cargo build -v
       - run: cargo test --all --all-features -v
-  # features:
-  #   if: ${{ github.event.inputs.publish }}
-  #   name: Features
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       package:
-  #         - aether-sdk
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Publish (${{matrix.package}})
-  #       run: cargo publish --all-features --package ${{ matrix.package }} --jobs 1 --verbose --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
   publish:
     if: ${{ github.event.inputs.publish }}
     name: Publish
-    # needs: features
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
         package:
-          - aether
+          - reaction
     steps:
       - uses: actions/checkout@v3
       - name: Publish (${{matrix.package}})
-        run: cargo publish --all-features --package ${{ matrix.package }} --jobs 1 --verbose --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: cargo publish --all-features -v --package ${{ matrix.package }} --token ${{ secrets.CARGO_REGISTRY_TOKEN }}

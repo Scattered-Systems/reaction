@@ -12,7 +12,15 @@ updates:
     directory: /
     schedule:
       interval: daily
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
   - package-ecosystem: cargo
-    directory: /aether
+    directory: /reaction
+    schedule:
+      interval: daily
+  - package-ecosystem: cargo
+    directory: /packages/contracts
     schedule:
       interval: daily
