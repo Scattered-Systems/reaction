@@ -1,7 +1,8 @@
-name: rust-clippy analyze
+name: Clippy
 
 on:
   push:
+    branches: [ "main", "master", "prod" ]
     tags: ["v*.*.*"]
   schedule:
     - cron: '30 9 * * 5'

@@ -1,0 +1,27 @@
+version: "4.0"
+services:
+  reaction:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: latest
+    container_name: reaction
+    depends_on:
+      - cache
+    ports:
+      - "9098:9098"
+    restart: always
+    volumes:
+      - /config:/config
+      - /data:/data
+
+  cache:
+    container_name: cache
+    image: redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+
+volumes:
+  data:

@@ -1,34 +1,47 @@
-FROM rust:latest as builder-base
+FROM node:latest as contracts
+
+ADD . /workspace
+WORKDIR /workspace
+
+COPY . .
+RUN npm install && npm run build
+
+FROM rust:latest as base
 
 RUN apt-get update -y && apt-get upgrade -y
 
-RUN apt-get install -y \
-    apt-utils \
-    protobuf-compiler
+FROM base as builder-base
 
-RUN rustup update 
+RUN apt-get install -y \
+    protobuf-compiler
 
 FROM builder-base as builder
 
-ADD . /app
-WORKDIR /app
+ENV CARGO_TERM_COLOR=always
+
+ADD . /workspace
+WORKDIR /workspace
 
 COPY . .
-RUN cargo build --color always --release --verbose -p flow
+RUN cargo build --release -v --workspace
 
-FROM debian:buster-slim as runner-base
+FROM debian:buster-slim as runner
+
+ENV RUST_LOG="info" \
+    SERVER_PORT=9099
 
 RUN apt-get update -y && apt-get upgrade -y 
 
-FROM runner-base as runner
+COPY --chown=55 .config /config
+VOLUME ["/config"]
 
-ENV CLIENT_ID="" \
-    CLIENT_SECRET="" \
-    RUST_LOG="info" \
-    SERVER_PORT=9090
+COPY --from=builder /workspace/target/release/reaction /bin/reaction
 
-COPY --from=builder /app/target/release/reaction /space/bin/reaction
+FROM runner
 
+EXPOSE 80
+EXPOSE 6379
 EXPOSE ${SERVER_PORT}
 
-CMD [ "flow", "system", "on" ]
+ENTRYPOINT [ "reaction" ]
+CMD [ "system", "--up" ]

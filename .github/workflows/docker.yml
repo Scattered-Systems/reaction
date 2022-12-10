@@ -1,0 +1,28 @@
+name: Docker
+
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ "v*.*.*" ]
+  schedule:
+    - cron: "30 9 * * 5"
+  workflow_dispatch:
+
+env:
+  DOCKERHUB_USERNAME: jo3mccain
+  IMAGE_NAME: scsys/reaction
+  IMAGE_TAG: latest
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@v5
+      with:
+        name: ${{ env.IMAGE_NAME }}
+        username: ${{ env.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        dockerfile: Dockerfile

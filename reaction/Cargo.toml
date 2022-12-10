@@ -1,45 +1,45 @@
 [package]
-authors = ["FL03 <jo3mccain@icloud.com> (https://github.com/FL03)"]
+authors = ["FL03 <jo3mccain@icloud.com> (https://github.com/FL03), Scattered-Systems (https://github.com/scattered-systems)"]
 categories = []
-description = "reaction"
+description = "reaction is a complete decentralized social solution empowering users to make the most out of their portals"
 edition = "2021"
 homepage = "https://github.com/scattered-systems/reaction/wiki"
 keywords = ["scsys"]
-license = "MIT"
+license = "Apache-2.0"
 name = "reaction"
 readme = "README.md"
 repository = "https://github.com/scattered-systems/reaction"
-version = "0.1.12"
+version = "0.1.0"
+
+[[bin]]
+name = "reaction"
+path = "src/main.rs"
 
 [build-dependencies]
 
 [dev-dependencies]
-opentelemetry = { features = ["rt-tokio"], version = "0.18.0" }
-opentelemetry-jaeger = { features = ["full"], version = "0.17.0" }
 
 [dependencies]
-async-session = "3.0.0"
-axum = { features = ["headers", "http2", "ws"], version = "0.5.16" }
-clap = { features = ["derive"], version = "4.0.8" }
-dotenv = "0.15.0"
+axum = { features = ["headers", "http2", "ws"], version = "0.6.1" }
+clap = { features = ["derive"], version = "4.0.29" }
+ethers = { features = [], version = "1.0.2" }
 futures = "0.3.25"
 glob = "0.3.0"
 http = "0.2.8"
-hyper = { features = ["full"], version = "0.14.20" }
-oauth2 = "4.3.0"
-reqwest = { default-features = false, features = ["json", "rustls-tls", "stream"], version = "0.11.12" }
-scsys = { features = ["full"], git = "https://github.com/scattered-systems/scsys", version = "0.1.26" }
-serde = { default-features = false, features = ["derive"], version = "1.0.147" }
-serde_json = "1.0.87"
+hyper = { features = ["full"], version = "0.14.23" }
+reqwest = { features = ["json", "rustls-tls", "stream"], version = "0.11.12" }
+scsys = { features = ["full"], version = "0.1.36" }
+serde = { features = ["derive"], version = "1.0.149" }
+serde_json = "1.0.89"
 strum = { features = ["derive"], version = "0.24.1" }
 tokio = { features = ["full"], version = "1.21.2" }
-tokio-stream = "0.1.10"
+tokio-stream = "0.1.11"
 tower = "0.4.13"
-tower-cookies = "0.7.0"
-tower-http = { features = ["full"], version = "0.3.4" }
+tower-http = { features = ["full"], version = "0.3.5" }
 tracing = "0.1.36"
-tracing-opentelemetry = "0.18.0"
-tracing-subscriber = { features = ["env-filter"], version = "0.3.15" }
+tracing-subscriber = { features = ["env-filter"], version = "0.3.16" }
+utoipa = { features = ["axum_extras", "serde_json", "serde_yaml"], version = "2.4.2" }
+utoipa-swagger-ui = { features = ["axum"], version = "3.0.1" }
 
 [package.metadata.docs.rs]
 all-features = true

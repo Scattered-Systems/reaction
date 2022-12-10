@@ -1,5 +1,11 @@
 tasks:
-  - init: sh scripts/setup.sh
-    command: cargo watch -x run
+  - init: |
+      sudo apt -y update && sudo apt -y upgrade && sudo apt -y autoremove
+      sudo apt -y install apt-utils protobuf-compiler
+      npm install -g npm@9.1.1
+      npm install
+      npm run build
+      cargo build --release
+    command: cargo run -- system --up
 
 

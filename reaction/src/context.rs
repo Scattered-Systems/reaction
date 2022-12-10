@@ -1,12 +1,10 @@
 /*
-   Appellation: context
-   Context:
-   Creator: FL03 <jo3mccain@icloud.com>
-   Description:
-       ... Summary ...
+    Appellation: context <module>
+    Contrib: FL03 <jo3mccain@icloud.com>
+    Description: ... Summary ...
 */
 use super::Settings;
-use scsys::prelude::Contextual;
+use scsys::prelude::{hasher, Contextual, Hashable, H256};
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Default, Deserialize, Eq, Hash, PartialEq, Serialize)]
@@ -26,6 +24,12 @@ impl Contextual for Context {
 
     fn context(&self) -> &Self::Ctx {
         self
+    }
+}
+
+impl Hashable for Context {
+    fn hash(&self) -> H256 {
+        hasher(self).into()
     }
 }
 
