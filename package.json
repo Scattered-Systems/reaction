@@ -4,7 +4,7 @@
     "description": "Smart-Contracts created for the scsys initiative",
     "devDependencies": {
       "@truffle/hdwallet-provider": "2.1.4",
-      "dotenv": "16.0.2",
+      "dotenv": "16.0.3",
       "ganache-cli": "^6.12.2",
       "hardhat": "^2.11.2",
       "truffle": "^5.5.32"
