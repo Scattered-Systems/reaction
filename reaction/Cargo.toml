@@ -38,7 +38,7 @@ tower = "0.4.13"
 tower-http = { features = ["full"], version = "0.3.5" }
 tracing = "0.1.36"
 tracing-subscriber = { features = ["env-filter"], version = "0.3.16" }
-utoipa = { features = ["axum_extras", "serde_json", "serde_yaml"], version = "2.4.2" }
+utoipa = { features = ["axum_extras", "serde_json", "serde_yaml"], version = "3.0.1" }
 utoipa-swagger-ui = { features = ["axum"], version = "3.0.1" }
 
 [package.metadata.docs.rs]
