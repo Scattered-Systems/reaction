@@ -2,7 +2,7 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3",
     "@openzeppelin/contracts-upgradeable": "^4.8.0-rc.1",
-    "@truffle/hdwallet-provider": "2.1.4",
+    "@truffle/hdwallet-provider": "2.1.6",
     "dotenv": "16.0.3"
   },
   "name": "@reaction/contracts",
