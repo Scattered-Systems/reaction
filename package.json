@@ -3,7 +3,7 @@
     "bugs": "https://github.com/scattered-systems/reaction/issues",
     "description": "Smart-Contracts created for the scsys initiative",
     "devDependencies": {
-      "@truffle/hdwallet-provider": "2.1.4",
+      "@truffle/hdwallet-provider": "2.1.7",
       "dotenv": "16.0.3",
       "ganache-cli": "^6.12.2",
       "hardhat": "^2.11.2",
