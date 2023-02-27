@@ -35,7 +35,7 @@ strum = { features = ["derive"], version = "0.24.1" }
 tokio = { features = ["full"], version = "1.21.2" }
 tokio-stream = "0.1.11"
 tower = "0.4.13"
-tower-http = { features = ["full"], version = "0.3.5" }
+tower-http = { features = ["full"], version = "0.4.0" }
 tracing = "0.1.36"
 tracing-subscriber = { features = ["env-filter"], version = "0.3.16" }
 utoipa = { features = ["axum_extras", "serde_json", "serde_yaml"], version = "2.4.2" }
