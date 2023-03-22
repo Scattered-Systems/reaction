@@ -22,7 +22,7 @@ path = "src/main.rs"
 [dependencies]
 axum = { features = ["headers", "http2", "ws"], version = "0.6.1" }
 clap = { features = ["derive"], version = "4.0.29" }
-ethers = { features = [], version = "1.0.2" }
+ethers = { features = [], version = "2.0.1" }
 futures = "0.3.25"
 glob = "0.3.0"
 http = "0.2.8"
